@@ -122,7 +122,7 @@ end process;
 -- Steering
 M9: process(Steering1A_n, Steering1B_n, SteerRst1_n)
 begin
-	if SteerRst1_n <= '0' then -- Asynchronous clear
+	if SteerRst1_n = '0' then -- Asynchronous clear
 		Steering1B_Q_n <= '1';
 	elsif rising_edge(Steering1B_n) then -- Steering encoders are active low but inverted on board
 		Steering1A_Q <= Steering1A_n;
@@ -132,7 +132,7 @@ end process;
 	
 L9: process(Steering2A_n, Steering2B_n, SteerRst2_n)
 begin
-	if SteerRst2_n <= '0' then -- Asynchronous clear
+	if SteerRst2_n = '0' then -- Asynchronous clear
 		Steering2B_Q_n <= '1';
 	elsif rising_edge(Steering2B_n) then 
 		Steering2A_Q <= Steering2A_n;
